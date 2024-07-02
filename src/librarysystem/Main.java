@@ -12,7 +12,7 @@ public class Main extends JFrame {
 	private static final LibWindow login = LoginWindow.INSTANCE;
 
 	public Main(String accessRight) {
-		super("Leabharlann - [" + accessRight + "]");
+		super("Librarian - [" + accessRight + "]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(720	, 640);
         setLocationRelativeTo(null);
@@ -46,10 +46,10 @@ public class Main extends JFrame {
 
         var welcome = new JPanel();
         welcome.setSize(480, 640);
-        welcome.add(new JLabel("Welcome to the library management app, please select an item on the left"));
+        welcome.add(new JLabel("Library Management"));
         welcome.add(links);
         String currDirectory = System.getProperty("user.dir");
-        ImageIcon image = new ImageIcon(currDirectory+"/src/librarysystem/library.jpg");
+        ImageIcon image = new ImageIcon(currDirectory+"/src/librarysystem/LibraryManagement.jpg");
         welcome.add(new JLabel(image));
 
         cards.add(welcome);
