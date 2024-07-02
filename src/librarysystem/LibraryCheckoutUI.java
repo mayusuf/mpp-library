@@ -23,7 +23,7 @@ import java.awt.*;
 
 public class LibraryCheckoutUI extends JPanel {
 
-	JLabel errorField = new JLabel("$");
+	JLabel errorField = new JLabel("");
 	CheckoutRecord cRecord;
 	DefaultTableModel dtm = new DefaultTableModel(new Object[] {"Member ID", "ISBN", "Checkout", "Due"}, 0);
 	
@@ -41,7 +41,7 @@ public class LibraryCheckoutUI extends JPanel {
         var ISBN = new JTextField("");
         topPanel.add(ISBN);
         
-        var okB = new JButton("OK");
+        var okB = new JButton("Checkout");
         okB.addActionListener(evt -> {
         	var memberID = mID.getText();
         	var isbn = ISBN.getText();
@@ -78,6 +78,7 @@ public class LibraryCheckoutUI extends JPanel {
     			da.saveNewMember(member);
     			da.saveNewBook(b);
     			dtm.addRow(new Object[] {memberID, isbn, now.toString(), then.toString()});
+				errorField.setText("Book checkout successful!");
     		} else {
     			errorField.setText("No more books available!");
     		}
