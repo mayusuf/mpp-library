@@ -85,27 +85,25 @@ public class AddNewBookUI extends JPanel{
 		button.addActionListener(evt -> {
 			var isbn = isbnF.getText();
 			var title = titleF.getText();
-			var author = authorF.getText();
-			var author1 = authorF1.getText();
+			var authorFirstName = authorF.getText();
+			var authorLastName = authorF1.getText();
 			var cLen = (int) cLenF.getValue();
 			var copies = (int) copyF.getValue();
 
 
 			try {
 				Validation.nonEmpty(title);
-				Validation.nonEmpty(author);
-				Validation.nonEmpty(author1);
+				Validation.nonEmpty(authorFirstName);
+				Validation.nonEmpty(authorLastName);
 				Validation.isIsbn(isbn);
 			} catch (ValidationException e) {
 				errorField.setText(e.getMessage());
 				return;
 			}
 
-			var aList = Arrays.asList(author.split(", "))
+			var aList = Arrays.asList()
 					.stream().map(el -> {
-						//var n = el.split(" ");
-						//return new Author(n[0], n[1], "", null, "");
-						return new Author(author,author1, "", null, "");
+						return new Author(authorFirstName,authorLastName, "", null, "");
 					})
 					.collect(Collectors.toList());
 
