@@ -31,7 +31,7 @@ public class SystemController implements ControllerInterface {
 
 	public void login(String id, String password) throws LoginException {
 
-		DataAccess da = new DataAccessFacade();
+			DataAccess da = new DataAccessFacade();
 
 		HashMap<String, User> map = da.readUserMap();
 
