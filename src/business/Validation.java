@@ -9,7 +9,7 @@ public class Validation {
     }
 
     public static void isIsbn(String isbn) throws ValidationException {
-        if(!isbn.matches("\\d{2}-\\d{5}")) {
+        if(!isbn.matches("^\\d{2}-\\d{5}$")) {
             throw new ValidationException("ISBN must match this format 21-11451");
         }
     }

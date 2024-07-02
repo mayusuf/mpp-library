@@ -28,13 +28,13 @@ public class Main extends JFrame {
         	menuItems.add("Add new member");
         	menuItems.add("Add copy of a book");
         } else if(SystemController.currentAuth == Auth.LIBRARIAN) {
-        	menuItems.add("Check out book");
+        	menuItems.add("Checkout book");
         	menuItems.add("Get user record");
         } else if(SystemController.currentAuth == Auth.BOTH){
         	menuItems.add("Add new book");
         	menuItems.add("Add new member");
         	menuItems.add("Add copy of a book");
-        	menuItems.add("Check out book");
+        	menuItems.add("Checkout book");
         	menuItems.add("Get user record");
         }
         menuItems.add("Get books");
@@ -55,7 +55,7 @@ public class Main extends JFrame {
         cards.add(welcome);
         
         var checkout = new LibraryCheckoutUI();
-        cards.add(checkout, "Check out book");
+        cards.add(checkout, "Checkout book");
 
         var newMember= new AddNewMember();
         cards.add(newMember, "Add new member");

@@ -23,7 +23,7 @@ import dataaccess.DataAccessFacade;
 public class AddNewBookUI extends JPanel{
 
 	JPanel mainPanel, topPanel, bottomPanel, buttonPanel, errorPanel;
-	JTextField isbnF, titleF, authorF;
+	JTextField isbnF, titleF, authorF, authorF1;
 	JSpinner cLenF, copyF;
 	JLabel errorField = new JLabel("$");
 	
@@ -52,12 +52,16 @@ public class AddNewBookUI extends JPanel{
 		titleF = new JTextField();
 		topPanel.add(titleF);
 
-		topPanel.add(new JLabel("Author(s)"));
+		topPanel.add(new JLabel("Author's First Name"));
 		authorF = new JTextField();
 		topPanel.add(authorF);
 
+		topPanel.add(new JLabel("Author's Last Name"));
+		authorF1 = new JTextField();
+		topPanel.add(authorF1);
+
 		topPanel.add(new JLabel("Maximum checkout (days)"));
-		cLenF = new JSpinner(new SpinnerNumberModel(1, 1, 30, 1));
+		cLenF = new JSpinner(new SpinnerNumberModel(7, 7, 21, 1));
 		topPanel.add(cLenF);
 
 		topPanel.add(new JLabel("Copies"));
@@ -82,6 +86,7 @@ public class AddNewBookUI extends JPanel{
 			var isbn = isbnF.getText();
 			var title = titleF.getText();
 			var author = authorF.getText();
+			var author1 = authorF1.getText();
 			var cLen = (int) cLenF.getValue();
 			var copies = (int) copyF.getValue();
 
@@ -89,6 +94,7 @@ public class AddNewBookUI extends JPanel{
 			try {
 				Validation.nonEmpty(title);
 				Validation.nonEmpty(author);
+				Validation.nonEmpty(author1);
 				Validation.isIsbn(isbn);
 			} catch (ValidationException e) {
 				errorField.setText(e.getMessage());
@@ -97,8 +103,9 @@ public class AddNewBookUI extends JPanel{
 
 			var aList = Arrays.asList(author.split(", "))
 					.stream().map(el -> {
-						var n = el.split(" ");
-						return new Author(n[0], n[1], "", null, "");
+						//var n = el.split(" ");
+						//return new Author(n[0], n[1], "", null, "");
+						return new Author(author,author1, "", null, "");
 					})
 					.collect(Collectors.toList());
 

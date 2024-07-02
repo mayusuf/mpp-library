@@ -42,7 +42,7 @@ public class SystemController implements ControllerInterface {
 		String passwordFound = map.get(id).getPassword();
 
 		if(!passwordFound.equals(password)) {
-			throw new LoginException("Password incorrect");
+			throw new LoginException("Password Incorrect");
 		}
 
 		currentAuth = map.get(id).getAuthorization();
