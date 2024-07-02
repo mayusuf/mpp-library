@@ -25,7 +25,7 @@ public class AddNewBookUI extends JPanel{
 	JPanel mainPanel, topPanel, bottomPanel, buttonPanel, errorPanel;
 	JTextField isbnF, titleF, authorF, authorF1;
 	JSpinner cLenF, copyF;
-	JLabel errorField = new JLabel("$");
+	JLabel errorField = new JLabel("");
 	
 	public AddNewBookUI() {
 		mainPanel = new JPanel(new BorderLayout(5, 5));
@@ -110,7 +110,7 @@ public class AddNewBookUI extends JPanel{
 			DataAccess da = new DataAccessFacade();
 			var nB = new Book(isbn, title, cLen, aList);
 			da.saveNewBook(nB);
-			errorField.setText("Book saved: " + nB.getTitle());
+			errorField.setText(nB.getTitle() + "Book saved successfully!");
 		});
 
 		buttonPanel.add(button);

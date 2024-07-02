@@ -29,16 +29,16 @@ public class Main extends JFrame {
         	menuItems.add("Add copy of a book");
         } else if(SystemController.currentAuth == Auth.LIBRARIAN) {
         	menuItems.add("Checkout book");
-        	menuItems.add("Get user record");
+        	menuItems.add("Checkout record list");
         } else if(SystemController.currentAuth == Auth.BOTH){
         	menuItems.add("Add new book");
         	menuItems.add("Add new member");
         	menuItems.add("Add copy of a book");
         	menuItems.add("Checkout book");
-        	menuItems.add("Get user record");
+        	menuItems.add("Checkout record list");
         }
-        menuItems.add("Get books");
-        menuItems.add("Exit");
+        menuItems.add("Books list");
+        menuItems.add("Logout");
 
         String[] m = menuItems.toArray(new String[0]);
         var links = new JList<String>(m);     
@@ -61,10 +61,10 @@ public class Main extends JFrame {
         cards.add(newMember, "Add new member");
 
         var allMembers = new AllMembers();
-        cards.add(allMembers.getMainPanel(), "Get user record");
+        cards.add(allMembers.getMainPanel(), "Checkout record list");
 
         var allBooks = new AllBooks();
-        cards.add(allBooks.getMainPanel(), "Get books");
+        cards.add(allBooks.getMainPanel(), "Books list");
         
         var newBook = new AddNewBookUI();
         cards.add(newBook, "Add new book");
@@ -74,7 +74,7 @@ public class Main extends JFrame {
         
         links.addListSelectionListener(evt -> {
         	var selected = links.getSelectedValue().toString();
-        	if(selected.equals("Exit")) {
+        	if(selected.equals("Logout")) {
         		this.dispose();
                 showLogin();
         	}

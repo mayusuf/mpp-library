@@ -54,7 +54,7 @@ public class AllBooks extends JPanel {
 
     public void defineTopPanel() {
         topPanel = new JPanel();
-        JLabel AllIDsLabel = new JLabel("All Books");
+        JLabel AllIDsLabel = new JLabel("List of Books");
         Util.adjustLabelFont(AllIDsLabel, Util.DARK_BLUE, true);
         topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         topPanel.add(AllIDsLabel);

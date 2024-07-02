@@ -19,7 +19,7 @@ public class DuplicateBookUI extends JPanel {
     JButton checkAvailabilityButton, addCopyButton;
     JTextField isbnField;
     DefaultTableModel dtm = new DefaultTableModel(new Object[]{"ISBN", "Title", "Copies"}, 0);
-    JLabel errorField = new JLabel("$");
+    JLabel errorField = new JLabel("");
     Book selectedBook;
 
     public DuplicateBookUI() {
@@ -39,7 +39,7 @@ public class DuplicateBookUI extends JPanel {
     private void defineTopPanel() {
 
         topPanel = new JPanel(new GridLayout(1, 4, 10, 10));
-        isbnField = new JTextField("isbn");
+        isbnField = new PlaceholderTextField("Enter ISBN");
         defineCheckAvailabilityButton();
         defineAddCopyButton();
         topPanel.add(isbnField);
@@ -64,7 +64,7 @@ public class DuplicateBookUI extends JPanel {
     }
 
     private void defineCheckAvailabilityButton() {
-        checkAvailabilityButton = new JButton("check availability");
+        checkAvailabilityButton = new JButton("Check Availability");
         checkAvailabilityButton.addActionListener(evt -> {
             selectedBook = null;
             var isbn = isbnField.getText();
@@ -89,7 +89,7 @@ public class DuplicateBookUI extends JPanel {
     }
 
     private void defineAddCopyButton() {
-        addCopyButton = new JButton("Copy");
+        addCopyButton = new JButton("Add New Copy");
         addCopyButton.addActionListener(evt -> {
             if (selectedBook == null) {
                 errorField.setText("No book selected");
@@ -99,7 +99,7 @@ public class DuplicateBookUI extends JPanel {
             DataAccess da = new DataAccessFacade();
             selectedBook.addCopy();
             da.saveNewBook(selectedBook);
-            errorField.setText("Book copied");
+            errorField.setText("New book copy added successfully!");
             dtm.removeRow(0);
             dtm.addRow(new Object[]{selectedBook.getIsbn(), selectedBook.getTitle(), selectedBook.getCopies().length});
         });
