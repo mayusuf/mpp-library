@@ -93,7 +93,7 @@ public class LibraryCheckoutUI extends JPanel {
 
         // Table panel
         JPanel tablePanel = new JPanel(new BorderLayout());
-        tablePanel.add(new JLabel("Book:"), BorderLayout.NORTH);
+//        tablePanel.add(new JLabel("Book:"), BorderLayout.NORTH);
         JTable table = new JTable(dtm);
         JScrollPane scrollPane = new JScrollPane(table);
         tablePanel.add(scrollPane, BorderLayout.CENTER);

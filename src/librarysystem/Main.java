@@ -29,15 +29,15 @@ public class Main extends JFrame {
         	menuItems.add("Add copy of a book");
         } else if(SystemController.currentAuth == Auth.LIBRARIAN) {
         	menuItems.add("Checkout book");
-        	menuItems.add("Checkout record list");
+        	menuItems.add("All members");
         } else if(SystemController.currentAuth == Auth.BOTH){
         	menuItems.add("Add new book");
         	menuItems.add("Add new member");
         	menuItems.add("Add copy of a book");
         	menuItems.add("Checkout book");
-        	menuItems.add("Checkout record list");
+        	menuItems.add("All members");
         }
-        menuItems.add("Books list");
+        menuItems.add("All books");
         menuItems.add("Logout");
 
         String[] m = menuItems.toArray(new String[0]);
@@ -61,10 +61,10 @@ public class Main extends JFrame {
         cards.add(newMember, "Add new member");
 
         var allMembers = new AllMembers();
-        cards.add(allMembers.getMainPanel(), "Checkout record list");
+        cards.add(allMembers.getMainPanel(), "All members");
 
         var allBooks = new AllBooks();
-        cards.add(allBooks.getMainPanel(), "Books list");
+        cards.add(allBooks.getMainPanel(), "All books");
         
         var newBook = new AddNewBookUI();
         cards.add(newBook, "Add new book");
